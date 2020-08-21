@@ -1,0 +1,39 @@
+pip install tensorflow
+pip install tensorflow-gpu
+
+https://colab.research.google.com/drive/1dyshPAc4TFdDQCYZXJQf7pxTJVE2sNys
+
+
+What Is Machine Learing?
+It's A part of AI Which helps machine to learn and experience without begin explicity programmed.
+Machine learing focuses on the development of computer programs that can access data and use to learn from it.
+
+
+What is AI and Deep Learing.
+(AI(ML(Deep Learning)))
+AI: AI is a simulation of human itelligence in machines that are programmed to think like humans and mimic their actions.
+DL:its a Part of Machine Learning that teaches computers to do what comes naturally to human.
+
+
+
+Types Of Machine Learning:
+
+1.Supervised Learning:
+Supervise Learning is a way of learning of machine when the machine using data which is well labeled that means some data is already tagged with the correct answer.
+
+
+2.Unsupervised Learning:
+Unsupervised learning is the training of machine using information that is neither classified nor labeled and allowing the algorithm to act on that information without guidance.
+
+
+3.Reinforcement Learning:
+Reinforcement learning differs from the supervised learning in a way that in supervised learning the training data has the answer key with it so the model is trained with the correct answer itself whereas in reinforcement learning, there is no answer but the reinforcement agent decides what to do to perform the given task. In the absence of a training dataset, it is bound to learn from its experience.
+
+What TensorFlow is??
+
+
+
+
+TensorFlow:
+Graph,
+Sessions

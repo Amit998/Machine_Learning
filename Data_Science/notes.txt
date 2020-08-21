@@ -1,0 +1,23 @@
+Types Linear Regression:-
+
+1) Simple Linear Regression
+2) Mutliple Linear Regression
+3) Polynomial Regression
+4) Support Vector For Regression
+5) Random Forest Regression
+
+1) Simple Linear Regression:-
+simple Linear Regression is a statistical method that allows us to summarize and study relation between two continuos variables.
+
+y=b0+(b1*x1)
+y=Dependent variable(DV)
+b0=Constant
+b1=Coefficient
+x1=Independent variable
+
+Example:-
+Suppose You have a data set Of Salary and experience and if you have to predict the value of Salary
+[y=b0+(b1*x1)]
+Salary=b0+b1*experience
+
+Type of error[ error=sum(y-y^)^2 -> min ]
