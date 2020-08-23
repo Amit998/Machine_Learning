@@ -21,3 +21,10 @@ Suppose You have a data set Of Salary and experience and if you have to predict 
 Salary=b0+b1*experience
 
 Type of error[ error=sum(y-y^)^2 -> min ]
+
+
+2) Mutliple Linear Regression:-
+Multiple linear regression attempts to model the relationship between two or more explanatory variables and a response variable by fitting a linear equation to observed data.
+
+
+y=b0+b*1*1 + b2*b2 + bn+bn
