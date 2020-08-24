@@ -28,3 +28,7 @@ Multiple linear regression attempts to model the relationship between two or mor
 
 
 y=b0+b*1*1 + b2*b2 + bn+bn
+
+3)Polynomial Linear Regression:-Polynomial regression is a special case of linear regression where we fit a polynomial equation on the data with a curvilinear relationship between the target variable and the independent variables.
+
+y=b0+b1*x1+b2*x2^+bn+xn^n
