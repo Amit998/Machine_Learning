@@ -6,6 +6,8 @@ Types Linear Regression:-
 4) Support Vector For Regression
 5) Random Forest Regression
 
+A)Linear Regression
+
 1) Simple Linear Regression:-
 simple Linear Regression is a statistical method that allows us to summarize and study relation between two continuos variables.
 
@@ -32,3 +34,20 @@ y=b0+b*1*1 + b2*b2 + bn+bn
 3)Polynomial Linear Regression:-Polynomial regression is a special case of linear regression where we fit a polynomial equation on the data with a curvilinear relationship between the target variable and the independent variables.
 
 y=b0+b1*x1+b2*x2^+bn+xn^n
+
+B)Non-Linear Regression
+
+Support Vector Regression
+
+SVM
+
+** in simple regression we try to minimise ,is a the error while in SVR we trt to fit the error within a certain threshold
+
+
+Kernel:The function used to map a lower dimensional data into a higher dimensional data.
+
+Hyper Plane:In SVM this is basically The separation line between the data classes. although in svr we are going to define it as the line that will help us predict the continuos value or target value.
+
+Boundary line: in SVM there are two lines other than Hyper plane which create a margin. the Support vector can be on the boundary lines or outside it. this boundary line separates the two classes.in SVR the concept is same.
+
+Supprt Vectors:This are the data points which are closest to the boundary.the distance of the points is minimum or least.

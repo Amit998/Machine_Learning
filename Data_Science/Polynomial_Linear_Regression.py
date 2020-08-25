@@ -30,12 +30,12 @@ poly_reg.fit(x_poly,y)
 # # For Prediction
 
 lin_reg2=LinearRegression()
-lin_reg2.fit(x_poly,y)
-
-
 # lin_reg2.fit(x_poly,y)
-# y_predict_2=lin_reg2.predict(x)
-# print(y_predict_2)
+
+
+lin_reg2.fit(x_poly,y)
+y_predict_2=lin_reg2.predict(x)
+print(y_predict_2)
 
 
 
@@ -60,4 +60,4 @@ lin_reg2.fit(x_poly,y)
 # y_predict=lin_reg.predict(6.5)
 # print(y_predict)
 
-lin_reg2.predict(poly_reg.fit_transform(6.7))
+# lin_reg2.predict(poly_reg.fit_transform(6.7))
