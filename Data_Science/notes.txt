@@ -51,3 +51,25 @@ Hyper Plane:In SVM this is basically The separation line between the data classe
 Boundary line: in SVM there are two lines other than Hyper plane which create a margin. the Support vector can be on the boundary lines or outside it. this boundary line separates the two classes.in SVR the concept is same.
 
 Supprt Vectors:This are the data points which are closest to the boundary.the distance of the points is minimum or least.
+
+
+
+CART:-
+(classification and regression tree)
+a cart is a predictive model which explains how an outcome variable's value can be predicted on other value . a cart's output is a decision tree where each fork is a split in a predictor variable and each end node contains a prediction for outcome variable. 
+
+RTF:
+Random Forest Tree
+
+
+statistic:
+
+[600,470,170,430,300]
+calculate the Mean
+334
+then
+calculate the diffrence
+then
+Squre Them then divide it to by mean value calculate the variance
+Standard Deviation =Root(variance)
+
