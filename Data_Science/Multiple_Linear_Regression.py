@@ -12,6 +12,7 @@ data = data[['city','rooms','bathroom','parking spaces','fire insurance','furnit
 
 data['rent amount']=data['rent amount'].map(lambda  i: int(i[2:].replace(',','')))
 data['fire insurance']=data['fire insurance'].map(lambda  i: int(i[2:].replace(',','')))
+
 le=preprocessing.LabelEncoder()
 data['furniture']=le.fit_transform((data['furniture']))
 

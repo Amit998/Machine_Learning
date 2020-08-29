@@ -73,3 +73,13 @@ then
 Squre Them then divide it to by mean value calculate the variance
 Standard Deviation =Root(variance)
 
+
+
+Correlation:-
+
+There Must Be Cause and effect relationship, simultaneous channges in two variables
+
+1,Positive Correlation(same direction of  both, income to expense)
+2,Negetive Correlation(different direction of  both, income to demand)
+
+R-Squared(R^2):
