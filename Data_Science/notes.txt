@@ -83,3 +83,52 @@ There Must Be Cause and effect relationship, simultaneous channges in two variab
 2,Negetive Correlation(different direction of  both, income to demand)
 
 R-Squared(R^2):
+
+R-Squared=1-(RSS/TSS)
+RSS ( Residual Sum Of Squares )
+TSS ( Total Sum Of Squares )
+
+y=actual values
+y-hat=predicted values
+y-(ymean)
+y-(yhat)
+
+y-(ymean)^2
+y-(yhat)^2
+
+TSS=y-(ymean)^2+n
+RSS=y-(yhat)^2+n
+
+R-Squared=1-(RSS/TSS)
+
+
+VARIABLE/DATA ITS TYPES IN ML 
+
+variable
+1)categorical
+2)numeric
+
+
+1)categorical
+a)nominal(Male,Female)
+b)ordinal(Small,Medium,Large)
+
+
+2)numeric
+a)Discrete (1,2,3,businesses)
+b)Continuous(Age,Height)
+
+
+Learning classification Models:
+1)Logistic Regression
+2)K-Nearest Neighbors
+3)support vector machine
+4)Kernel SVM
+5)Naive Bayes
+6)Decision Tree classification
+7)Random Forest classification
+
+
+1)Logistic Regression:-
+Logistic regression is the appropriate regression analysis to conduct when the dependent variable is dichotomous (binary).  Like all regression analyses, the logistic regression is a predictive analysis.  Logistic regression is used to describe data and to explain the relationship between one dependent binary variable and one or more nominal, ordinal, interval or ratio-level independent variables.
+P/(1-p)=b0+b1*x
