@@ -23,3 +23,9 @@
 ### Text Planning
 ### sentence Planning
 ## Text Realization
+
+
+## Tokenization
+### 1) Trigrams
+### 2) Ngrams
+### 3) Bigrams

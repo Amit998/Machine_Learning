@@ -139,3 +139,32 @@ KKN:-A k-nearest-neighbor algorithm, often abbreviated k-nn, is an approach to d
 The k-nearest-neighbor is an example of a "lazy learner" algorithm, meaning that it does not build a model using the training set until a query of the data set is performed.
 
 pattern Recognition :- Pattern recognition is the process of recognizing patterns by using machine learning algorithm. Pattern recognition can be defined as the classification of data based on knowledge already gained or on statistical information extracted from patterns and/or their representation. One of the important aspects of the pattern recognition is its application potential.
+
+
+
+support vector machine:-A support vector machine (SVM) is machine learning algorithm that analyzes data for classification and regression analysis. SVM is a supervised learning method that looks at data and sorts it into one of two categories. An SVM outputs a map of the sorted data with the margins between the two as far apart as possible. SVMs are used in text categorization, image classification, handwriting recognition and in the sciences.
+
+A support vector machine is also known as a support vector network (SVN).
+
+
+
+Kernel:The function used to map a lower dimensional data into a higher dimensional data.
+
+Hyper Plane:In SVM this is basically The separation line between the data classes. although in svr we are going to define it as the line that will help us predict the continuos value or target value.
+
+Boundary line: in SVM there are two lines other than Hyper plane which create a margin. the Support vector can be on the boundary lines or outside it. this boundary line separates the two classes.in SVR the concept is same.
+
+Supprt Vectors:This are the data points which are closest to the boundary.the distance of the points is minimum or least.
+
+Bayes's Theorem:- in probability and statistics ,Bayes Theorem descr ibe the probability of an event , based on prior knowledge of conditions that might be related.
+
+p(A/B)=(P(A) P(B|A))/P(B) 
+
+P(classA | X)=(P(X|classA)*P(classA))/P(X)
+
+Ensemble Learning Method:-
+in statistic and ML ensemble methods use Multiple learning ensemble methods use Multiple learning algorithms to obtain better prediction performence than cloud be obtain from any of the constituent learning algorithms alone.
+TYPES:-
+Bagging,Boosting,Stacking 
+
+Bagging:-Bagging stands for bootstrap aggregating is a technique used to reduce the variance of predictions by combining the result of multiple classifiers modeled on different sub-samples of the same data set.
