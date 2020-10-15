@@ -41,3 +41,4 @@ print(predict)
 # plt.ylabel("Salary")
 # plt.show()
 
+

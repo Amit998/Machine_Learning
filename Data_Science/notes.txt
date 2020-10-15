@@ -168,3 +168,8 @@ TYPES:-
 Bagging,Boosting,Stacking 
 
 Bagging:-Bagging stands for bootstrap aggregating is a technique used to reduce the variance of predictions by combining the result of multiple classifiers modeled on different sub-samples of the same data set.
+
+
+Ginni(OutLook Condition) = 1 -(Yes/total)^2 -(No/Total)^2 
+
+Ginni OutLook=(yes/total) * Ginni(OutLook Condition) <-(N)
