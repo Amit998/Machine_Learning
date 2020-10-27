@@ -25,6 +25,7 @@ def token_sententes(sentence):
         w = extract_words(sentence)
         words.extend(w)
     words=sorted(list(set(words)))
+    return words
 
 
 def extract_words(sentence):
@@ -36,6 +37,7 @@ def extract_words(sentence):
 
 def bagOfWord(sentence,words):
     sentence_word=extract_words(sentence)
+    print(words)
     bag=np.zeros(len(words))
     for sw in sentence_word:
         for i,word in enumerate(words):
@@ -48,6 +50,7 @@ def bagOfWord(sentence,words):
 text=["Machine Learning is Great","You Are One Of the greatest Person in the world"]
 vocabulary=token_sententes(text)
 
+# print(vocabulary)
 bagOfWord("Machine Learning is Great",vocabulary)
 
 from sklearn.feature_extraction.text import CountVectorizer
