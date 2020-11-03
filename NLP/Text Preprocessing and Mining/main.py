@@ -525,7 +525,7 @@ x="To type a lowercase character by using a key combination that includes the SH
 # language Translation and Detaction
 
 
-tb=TextBlob(x)
+# tb=TextBlob(x)
 
 # print(tb.detect_language())
 
@@ -537,6 +537,7 @@ tb=TextBlob(x)
 from textblob.sentiments import NaiveBayesAnalyzer
 
 z="we all stands together. we are gonna win this fight"
+y="leave me alone"
 
-demo=TextBlob(x,analyzer=NaiveBayesAnalyzer())
-print(demo.sentiment())
+demo=TextBlob(y,analyzer=NaiveBayesAnalyzer())
+print(demo.sentiment)
