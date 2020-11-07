@@ -7,3 +7,8 @@
 
 ## StopWords
 ## In computing, stop words are words which are filtered out before or after processing of natural language data (text).[1] Though "stop words" usually refers to the most common words in a language, there is no single universal list of stop words used by all natural language processing tools, and indeed not all tools even use such a list.
+
+
+## Ruled-Based Matching
+
+## Token-Based Matching
