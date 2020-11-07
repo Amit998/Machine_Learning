@@ -1,0 +1,12 @@
+First We Need The Dataset which we can easily find into kaggle
+Then We have To Take Main Features Where The main Data will be dependent on. like The Area, rooms Number, bathroom parking,rooms , spaces,
+Then We Have To Preprocess The Data Like.
+We Have To Convert The data of a string into Integer Value Which We can Do using labelEncoding
+then we have to simplify the data by replacing all the nulls with mean,
+then after that we have to divide it into train and test datasets.
+we are going to put 90% values into training data,
+then we have to call linearRegression model
+then we have to fit the values into the the model
+after that we can predict the value
+
+

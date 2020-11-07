@@ -119,3 +119,4 @@ print(accuracy_score(y_test,y_pred))
 
 
 print(clf.predict(['click this link https:\\www.lol.com']))
+print(clf.predict(['Bratati is Pagli']))
