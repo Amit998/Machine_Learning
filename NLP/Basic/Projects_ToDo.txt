@@ -1,4 +1,4 @@
-Spam Message Classification
+Spam Message Classification Done
 Restaurant Review Prediction
 IMDB,AMAZON, yelp review Classification
 Automated Text Summarization

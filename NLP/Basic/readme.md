@@ -38,3 +38,6 @@
 ## ENT_TYPE	unicode	The token’s entity label.
 
 ## _ V2.1	dict	Properties in custom extension attributes.
+
+
+## Named Entity Recognition
