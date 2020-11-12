@@ -1,0 +1,4 @@
+Sigmoid=
+ReLU=
+tanh=
+softmax
