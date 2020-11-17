@@ -5,9 +5,9 @@ import numpy as np
 import pandas as pd
 from tensorflow.keras import layers
 
-age=[22,25,47,52,46,56,27]
-affordabiity=[1,0,1,0,1,1,0]
-have_insurance=[0,0,1,0,1,1,0]
+# age=[22,25,47,52,46,56,27]
+# affordabiity=[1,0,1,0,1,1,0]
+# have_insurance=[0,0,1,0,1,1,0]
 
 
 
@@ -106,6 +106,24 @@ def gradient_descent(age,affordibility,y_train,epochs,loss_thrashold):
             return w1,w2,bias
     return w1,w2,bias
 
-gradient_descent(X_train_scaled['age'],X_train_scaled['affordibility'],y_train,1000,0.4631)
+# coefW1,coefW2 ,intercept= gradient_descent(X_train_scaled['age'],X_train_scaled['affordibility'],y_train,1000,0.4631)
 
-# print(coef,intercept)
+coef= gradient_descent(X_train_scaled['age'],X_train_scaled['affordibility'],y_train,1000,0.4631)
+
+
+# print(coefW1,coefW2,intercept)
+# print(coef[0])
+
+
+def sigmoid(x):
+    import math
+    return 1 / (1 + math.exp(-x))
+
+
+
+
+def prediction_function(age,affordibility):
+    weighted_sum= coef[0] * age + coef[1] * affordibility + coef[2]
+    return sigmoid(weighted_sum)
+
+print(prediction_function(.30,0))
