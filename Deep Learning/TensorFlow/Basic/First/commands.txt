@@ -1,0 +1,1 @@
+tensorboard --logdir logs/ (For running tensorboard)

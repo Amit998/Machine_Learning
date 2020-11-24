@@ -69,6 +69,8 @@ model=keras.Sequential([
     keras.layers.Dense(10,activation='sigmoid') #Hidden Layer
 ])
 
+
+tb_callback=tf.keras.callbacks.TensorBoard(log_dir="logs/adam",histogram_freq=1)
 model.compile(
     optimizer='adam',
     loss='sparse_categorical_crossentropy',
@@ -78,7 +80,8 @@ model.compile(
 model.fit(
     x_train_flattened,
     y_train,
-    epochs=5
+    epochs=50,
+    callbacks=[tb_callback]
 )
 
 model.evaluate(x_test_flattened,y_test)
@@ -93,9 +96,9 @@ y_predicted_labels=[np.argmax(i) for i in y_pred]
 
 cm=tf.math.confusion_matrix(labels=y_test,predictions=y_predicted_labels)
 
-import seaborn as sns
-plt.figure(figsize=(10,7))
-sns.heatmap(cm,annot=True,fmt='d')
-plt.xlabel('Predicted')
-plt.ylabel('Truth')
-plt.show()
+# import seaborn as sns
+# plt.figure(figsize=(10,7))
+# sns.heatmap(cm,annot=True,fmt='d')
+# plt.xlabel('Predicted')
+# plt.ylabel('Truth')
+# plt.show()
