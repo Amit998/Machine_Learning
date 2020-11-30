@@ -10,7 +10,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 
-data=pd.read_csv('twitter4000.csv')
+data=pd.read_csv('twitter30k_cleaned.csv')
 # print(data['sentiment'].value_counts())
 text=data['twitts'].tolist()
 # print(text)
