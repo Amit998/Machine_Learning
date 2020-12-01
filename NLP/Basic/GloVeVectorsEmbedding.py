@@ -258,7 +258,7 @@ model.add(Dense(1,activation='sigmoid'))
 model.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
 
 
-model.fit(x_train,y_train,epochs=10,validation_data=(x_test,y_test))
+model.fit(x_train,y_train,epochs=100,validation_data=(x_test,y_test))
 
 
 
@@ -273,13 +273,17 @@ for pred in y_pred:
         temp_pred.append(0)
 
 # print(y_test,y_pred)
-
+t=0
+f=0
 for i,j in zip(temp_pred,y_test):
     if(i==j):
         print('True')
+        t+=1
     else:
         print('false')
-
+        f+=1
+print(t,' True')
+print(f,' False')
 
 
 def get_encoded(x):
