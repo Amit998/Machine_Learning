@@ -8,7 +8,7 @@ matplotlib.rcParams["figure.figsize"]=(10,5)
 
 df1=pd.read_csv("dataset/Bengaluru_House_Data.csv")
 # print(df1.head())
-print(df1.columns)
+# print(df1.columns)
 # print(df1.groupby('area_type')['area_type'].agg('count'))
 df2=df1.drop(['area_type','society','balcony','availability'],axis='columns')
 # print(df2.head())
