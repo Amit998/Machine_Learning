@@ -37,15 +37,15 @@ def load_saved_artifacts():
     global __locations
     global __model
 
-    with open("./artifacts/columns.json",'r') as f:
+    with open("server/artifacts/columns.json",'r') as f:
         __data_columns= json.load(f)['data_columns']
         __locations=__data_columns[3:]
     
-    with open("./artifacts/bangalore_home_price_model.pickle",'rb') as f:
+    with open("server/artifacts/bangalore_home_price_model.pickle",'rb') as f:
         try:
             __model=pickle.load(f)
         except EOFError:
-            print("Error Thew in Loading pickle data")
+            print("Error Threw in Loading pickle data")
 
     
         
