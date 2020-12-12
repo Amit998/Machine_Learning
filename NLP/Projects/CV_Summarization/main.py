@@ -12,11 +12,12 @@ train_data=pickle.load(open('Data/train_data.pkl','rb'))
 
 nlp=spacy.blank('en')
 
-
+# print(nlp.pipe_names)
 def train_model(train_data):
     if 'ner' not in nlp.pipe_names:
         ner = nlp.create_pipe('ner')
         nlp.add_pipe(ner, last = True)
+        
     
     for _, annotation in train_data:
         for ent in annotation['entities']:
@@ -45,7 +46,7 @@ def train_model(train_data):
 
 
 
-# train_model(train_data)
+train_model(train_data)
 # nlp.to_disk('nlp_model')
 nlp_model=spacy.load('nlp_model')
 
@@ -72,7 +73,7 @@ tx=" ".join(text.split('\n'))
 
 
 doc=nlp_model(tx)
-for ent in doc.ents:
-    print((f'{ent.label_.upper():{30}} - {ent.text}'))
+# for ent in doc.ents:
+#     print((f'{ent.label_.upper():{30}} - {ent.text}'))
 
 

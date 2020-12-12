@@ -18,14 +18,14 @@ doc=nlp("TensorFlow is an open source software library for high performance nume
 
 
 
-# def show_ents(doc):
-#     if doc.ents:
-#         for ent in doc.ents:
-#             print(ent.text +' - '+ ent.label_+' - '+ str(spacy.explain(ent.label_)))
-#     else:
-#         print('No Named Entities Found.')
+def show_ents(doc):
+    if doc.ents:
+        for ent in doc.ents:
+            print(ent.text +' - '+ ent.label_+' - '+ str(spacy.explain(ent.label_)))
+    else:
+        print('No Named Entities Found.')
 
-
+show_ents(doc)
 # from spacy.matcher import  PhraseMatcher
 # matcher=PhraseMatcher(nlp.vocab)
 
@@ -45,7 +45,7 @@ doc=nlp("TensorFlow is an open source software library for high performance nume
 # new_ent=[Span(doc,match[1],match[2],label=PROD) for match in matches]
 # doc.ents=list(doc.ents)+ new_ent
 
-# show_ents(doc)
+show_ents(doc)
 
 # print(len([ent for ent in doc.ents if ent.label_=='MONEY']))
 
@@ -57,10 +57,10 @@ doc=nlp("TensorFlow is an open source software library for high performance nume
 #     return doc
 # nlp.add_pipe(remove_whitespace_entities,after='ner')
 
-for chunk in doc.noun_chunks:
-    print(chunk.text+' - '+chunk.root.text+' - '+chunk.root.dep_+' - '+chunk.root.head.text)
-# print(len(doc.noun_chunks))
+# for chunk in doc.noun_chunks:
+#     print(chunk.text+' - '+chunk.root.text+' - '+chunk.root.dep_+' - '+chunk.root.head.text)
+# # print(len(doc.noun_chunks))
 
-from spacy import displacy
+# from spacy import displacy
 
-displacy.render(doc,style='ent')
+# displacy.render(doc,style='ent')
