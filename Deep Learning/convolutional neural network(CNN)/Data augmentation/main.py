@@ -11,13 +11,16 @@ from tensorflow.keras import models
 from tensorflow.keras.models import Sequential
 import pathlib
 
+from tensorflow.python.keras.layers.core import Dropout
 
+
+#Install the dataset
 
 dataset_url = "https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz"
 data_dir = tf.keras.utils.get_file('flower_photos', origin=dataset_url,cache_dir='.', untar=True)
 data_dir = pathlib.Path(data_dir)
 
-# print(data_dir)
+print(data_dir)
 image_dataset=list(data_dir.glob('*/*.jpg'))
 image_count=len(image_dataset)
 
@@ -25,8 +28,8 @@ image_count=len(image_dataset)
 roses=list(data_dir.glob('roses/*'))
 
 
-# print(roses[:5])
-# PIL.Image.open(str(roses[2]))
+print(roses[:5])
+PIL.Image.open(str(roses[2]))
 flower_image_dict={
     'roses':list(data_dir.glob('roses/*')),
     'daisy':list(data_dir.glob('daisy/*')),
@@ -72,20 +75,29 @@ x_train_scaled=x_train/255
 x_test_scaled=x_test/255
 # print(len(x_train))
 
-# model=Sequential(
-#     [
-#         layers.Conv2D(16,3,padding='same',activation='relu'),
-#         layers.MaxPooling2D(),
-#         layers.Conv2D(32,3,padding='same',activation='relu'),
-#         layers.MaxPooling2D(),
-#         layers.Conv2D(64,3,padding='same',activation='relu'),
-#         layers.MaxPooling2D(),
-#         layers.Flatten(),
-#         layers.Dense(128,activation='relu'),
-#         layers.Dense(num_classes)
+data_augmentation=keras.Sequential([
+    layers.experimental.preprocessing.RandomZoom(0.3),
+    layers.experimental.preprocessing.RandomContrast(0.3),
+    layers.experimental.preprocessing.RandomFlip("horizontal_and_vertical"),
+    layers.experimental.preprocessing.RandomRotation(0.2),
+])
 
-#     ]
-# )
+model=Sequential(
+    [
+        data_augmentation,
+        layers.Conv2D(16,3,padding='same',activation='relu'),
+        layers.MaxPooling2D(),
+        layers.Conv2D(32,3,padding='same',activation='relu'),
+        layers.MaxPooling2D(),
+        layers.Conv2D(64,3,padding='same',activation='relu'),
+        layers.MaxPooling2D(),
+        layers.Dropout(0.2),
+        layers.Flatten(),
+        layers.Dense(128,activation='relu'),
+        layers.Dense(num_classes)
+
+    ]
+)
 
 # model.compile(optimizer='adam',loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),metrics=['accuracy'])
 
@@ -106,12 +118,7 @@ score=tf.nn.softmax(predictions[0])
 # print(y_test[0])
 
 
-data_augmentation=keras.Sequential([
-    layers.experimental.preprocessing.RandomZoom(0.3),
-    layers.experimental.preprocessing.RandomContrast(0.3),
-    layers.experimental.preprocessing.RandomFlip("horizontal_and_vertical"),
-    layers.experimental.preprocessing.RandomRotation(0.2),
-])
+
 
 plt.axis('off')
 # plt.imshow(x[0])
