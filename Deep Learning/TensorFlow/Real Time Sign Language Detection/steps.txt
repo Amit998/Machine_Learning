@@ -1,0 +1,8 @@
+Flow
+1. Clone repo Done
+2. Collect Images
+3. setup labelImg
+4. Label Images
+5.Train
+6.Update Check Point
+7. Detect
