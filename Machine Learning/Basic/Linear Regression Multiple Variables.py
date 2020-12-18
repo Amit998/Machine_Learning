@@ -14,8 +14,8 @@ reg = linear_model.LinearRegression()
 reg.fit(df.drop('price',axis='columns'),df.price)
 
 
-reg.coef_
-reg.intercept_
+print(reg.coef_)
+print(reg.intercept_)
 
 reg.predict([[3000, 3, 40]])
 
