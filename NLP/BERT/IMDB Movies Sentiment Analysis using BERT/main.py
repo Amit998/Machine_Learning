@@ -35,7 +35,7 @@ data_test = pd.read_excel('IMDB-Movie-Reviews-Large-Dataset-50k/test.xlsx',  dty
 model=text.text_classifier(
     name='bert',
     train_data=(x_train,y_train),
-    preprocess=preprocess
+    preproc=preprocess
 )
 
 # #get learning rate

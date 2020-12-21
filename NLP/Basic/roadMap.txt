@@ -1,0 +1,10 @@
+Text_Proprocessing level 1 Tokenization,lemmatization
+Text_Proprocessing level  2 bag of words , TFIDF,Unigrams,Bigrams,ngram
+Text_Proprocessing level 3 gensim ,word2vec,avgWord2Vec
+Solve machine leanring Usecases
+get understanding of Artifitial Neural network
+understanding recurrent neural network
+text Text_Proprocessing level 3 word Embeddings
+Bidirectional LSTM RNN Encoders and decoders,attention models
+transform
+BERT
