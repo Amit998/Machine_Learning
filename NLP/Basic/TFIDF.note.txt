@@ -1,0 +1,46 @@
+sent1=good boy
+sent2=good girl
+sent3=girl boy good
+
+Term Frequency=
+No of repetative words in sentence
+/
+no of words in sentence
+
+            TF table
+|____________________________|
+|    |  sent1 | sent2 | sent3|
+|good|  1/2   |  1/2  |  1/3 |   
+|boy |  1/2   |   0   |  1/3 |
+|girl|    0   |  1/2  |  1/3 |
+|____________________________|
+
+Inverse Document Frequency=
+Log
+(
+    No Of sentence
+    /
+    no of sentence containing
+)
+
+     IDF table
+|__________________|
+|    |    IDF      |
+|good|  log(3/3)   |   
+|boy |  log(3/2)   |
+|girl|  log(3/2)   |
+|__________________|
+
+final goal
+TFIDF=
+TF 
+*
+IDF
+
+                   TF table
+|_________________________________________________|
+|      | good |        boy      |      girl       |
+|sent1 |  0   | 1/2*(log(3/2))  |       0         |   
+|sent2 |  0   |  0              |  1/2*(log(3/2)) |
+|sent3 |  0   | 1/3*(log(3/2))  |  1/3*(log(3/2)) |
+|_________________________________________________|
