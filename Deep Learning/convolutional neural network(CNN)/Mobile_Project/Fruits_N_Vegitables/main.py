@@ -53,6 +53,7 @@ epochs=10
 
 model.fit(train_generator,epochs=epochs,steps_per_epoch=200)
 
+model.save('model.pkl')
 converter=tf.lite.TFLiteConverter.from_keras_model(model)
 
 tflite_model=converter.convert()
