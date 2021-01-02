@@ -37,3 +37,12 @@ y_predicted = model.predict(X_test)
 
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_predicted)
+
+
+import matplotlib.pyplot as plt
+import seaborn as sn
+plt.figure(figsize=(10,7))
+sn.heatmap(cm, annot=True)
+plt.xlabel('Predicted')
+plt.ylabel('Truth')
+plt.show()
