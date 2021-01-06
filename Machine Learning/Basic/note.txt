@@ -9,3 +9,5 @@ price=m1*area+m2*bedrooms+m3*age+b
 m1,m2,m3=Coefficients
 area,bedrooms,age=features
 b=y_intercept
+
+P(A/B)=(P(B/A)*P(A))/P(B)
