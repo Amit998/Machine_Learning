@@ -1,4 +1,5 @@
 import numpy as np
+from numpy import random
 import pandas as pd
 import sklearn
 import scipy
@@ -107,5 +108,40 @@ y=data1[target]
 outlier=state.uniform(low=0,high=1,size=(x.shape[0],x.shape[1]))
 
 
-print(outlier)
+# print(outlier)
 # print(x.shape,y.shape)
+
+
+classifier={
+    "Isolation Forest":IsolationForest(n_estimators=100,max_samples=len(x),contamination=outlier_fration,random_state=state,verbose=0),
+    "Local Outlier Factor":LocalOutlierFactor(n_neighbors=20,algorithm='auto',leaf_size=30,metric='minkowski',p=2,metric_params=None,contamination=outlier_fration),
+    "Support Vector Machine":OneClassSVM(kernel='rbf',degree=3,gamma=0.1,nu=0.05,max_iter=-1)
+}
+
+
+n_outliers = len(fraud)
+
+for i,(clf_name,clf) in enumerate(classifier.items()):
+    if (clf_name=="Local Outlier Factor"):
+        y_pred=clf.fit_predict(x)
+        score_pred=clf.negative_outlier_factor_
+    elif (clf_name == "Support Vector Machine"):
+        clf.fit(x)
+        y_pred=clf.predict(x)
+    else:
+        clf.fit(x)
+        score_params=clf.decision_function(x)
+        y_pred=clf.predict(x)
+
+    y_pred[y_pred==1]=0
+    y_pred[y_pred==-1]=1
+    n_errors=(y_pred !=y).sum()
+    print("{}: {}".format(clf_name,n_errors))
+    print("Accuracy Score :")
+    print(accuracy_score(y,y_pred))
+    print("Classification Report :")
+    print(classification_report(y,y_pred))
+
+
+
+
