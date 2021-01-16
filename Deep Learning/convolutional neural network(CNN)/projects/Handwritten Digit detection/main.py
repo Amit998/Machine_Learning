@@ -107,7 +107,7 @@ def convertImage(imgName):
 
     return new_img
 
-converted_img=convertImage('81.jpg')
+converted_img=convertImage('8.jpg')
 # print(converted_img.shape)
 
 def predictImg(model,conv_img):
