@@ -171,14 +171,17 @@ trainning_Data=[]
 # plt.imshow(cv2.cvtColor(face_roi,cv2.COLOR_BGR2GRAY))
 # plt.show()
 
+IMG_SIZE=224
+# frame=cv2.imread("D:/study/datasets/maskdataset/with_same_img/without_mask/00943.png")
 
-# frame=cv2.imread("D:/study/datasets/maskdataset/with_mask/with_mask_2012.jpg")
-# frame=cv2.imread("D:/study/datasets/maskdataset/without_mask/without_mask_2011.jpg")
+frame=cv2.imread("D:/study/datasets/maskdataset/with_same_img/with_mask/00010_Mask.jpg")
+# frame=cv2.imread("D:/study/datasets/maskdataset/without_mask/without_mask_2013.jpg")
 
+new_model=tf.keras.models.load_model("my_model3.h5")
 
-# final_image=cv2.resize(frame,(img_size,img_size))
-# final_image=np.expand_dims(final_image,axis=0)
-# final_image=final_image/255.0
+final_image=cv2.resize(frame,(IMG_SIZE,IMG_SIZE))
+final_image=np.expand_dims(final_image,axis=0)
+final_image=final_image/255.0
 
-# predict=new_model.predict(final_image)
-# print(predict)
+predict=new_model.predict(final_image)
+print(predict)
