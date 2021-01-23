@@ -2,24 +2,12 @@ import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-
-
-
 df = pd.read_csv("D:/study/datasets/CSV_data/movie_dataset.csv")
-
-
 def get_title_from_index(index):
     return df[df.index == index]['title'].values[0]
-
 def get_index_from_title(title):
     return df[df.title == title]['index'].values[0]
-
-
-
-
-
 # print(df.columns)
-
 features=['genres','keywords','cast','original_language','director']
 
 for feature in features:
@@ -41,7 +29,8 @@ count_matrix=cv.fit_transform(df["combine_features"]).toarray()
 cosin_sim=cosine_similarity(count_matrix)
 
 # print(cosin_sim)
-movie='Maze Runner: The Scorch Trials'
+movie=input()
+# movie='Maze Runner: The Scorch Trials'
 
 movie_index=get_index_from_title(movie)
 # print(movie_index)
