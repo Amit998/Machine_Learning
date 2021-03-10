@@ -1,5 +1,5 @@
-text=
-"""
+text="""
+
 Interesting aspect here is, election or no election, money laundering activities are showing an upward trend in India. The official data till 30 April 2013 available with indiatoday.in shows money laundering has increased significantly every year, over the past few years.
 
 The number of money laundering investigations increased from 798 on 31 December 2009 to 1405 on 15 December 2011, to 1510 on 31 August 2012, to 1530 on 30 November 2012, and 1561 on 30 April 2013. Even prosecution cases have increased.  "From 2009 to 2013, more than 1500 cases of money laundering have come before us, out of that 65 per cent cases are trade-based money laundering," a senior DRI officer said.

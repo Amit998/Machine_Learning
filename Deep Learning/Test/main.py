@@ -33,7 +33,7 @@ model = tf.keras.models.load_model('path/to/location')
 # model.save('epic_num_reader_save.model')
 # new_model=tf.keras.models.load_model('epic_num_reader_save.model')
 
-predictions=tf.keras.models.load_model([x_test])
+predictions=model.p
 print(predictions)
 import numpy as np
 print(np.argmax(predictions[0]))

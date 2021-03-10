@@ -8,19 +8,21 @@
 # tf.shape(rank2_tensor)
 # tf.rank(rank1_tensor)
 
-import pandas as pd
-from sklearn import preprocessing
-import numpy as np
+# import pandas as pd
+# from sklearn import preprocessing
+# import numpy as np
 
-data = pd.read_csv('houses_to_rent.csv',sep=',')
+import tensorflow as tf
+
+# data = pd.read_csv('houses_to_rent.csv',sep=',')
 # print(data.head())
-print("-"*35);print("Importing Data");print("-"*35)
+# print("-"*35);print("Importing Data");print("-"*35)
 
 
-data = data[['city','rooms','bathroom','parking spaces','fire insurance','furniture','rent amount']]
+# data = data[['city','rooms','bathroom','parking spaces','fire insurance','furniture','rent amount']]
 
 
-lst=[]
+# lst=[]
 # print(lst)
 
 # for i in lst:
@@ -34,16 +36,16 @@ lst=[]
 
 # data['rent amount']=data['rent amount'].map(lambda  i: int(i[2:].replace(',','')))
 
-data['rent amount']=data['rent amount'].apply(lambda  i: i[2:] )
+# data['rent amount']=data['rent amount'].apply(lambda  i: i[2:] )
 
 
-print(data['rent amount'].head())
-for i in range(5):
-    lst.append(data['rent amount'][i])
+# print(data['rent amount'].head())
+# for i in range(5):
+#     lst.append(data['rent amount'][i])
     
-print(lst)
-newLst=[  int(x[2:].replace(',',''))   for x in lst]
-print(newLst)
+# print(lst)
+# newLst=[  int(x[2:].replace(',',''))   for x in lst]
+# print(newLst)
 
 
 # data['fire insurance']=data['fire insurance'].apply(lambda  x: list([str(x)]))

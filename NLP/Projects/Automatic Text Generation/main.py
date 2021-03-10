@@ -103,28 +103,35 @@ model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['accurac
 
 model.fit(x,y,batch_size=256,epochs=10)
 
-seed_text=lines[123456]
+import pickle
 
-def generate_text_seq(model,tokenizer,text_seq_length,seed_text,n_word):
-    text=[]
+pickle_out=open('classifier.pkl','wb')
+pickle.dump(model,pickle_out)
+pickle_out.close()
 
-    for _ in range(n_word):
-        encoded=tokenizer.texts_to_sequences([seed_text])[0]
-        encoded=pad_sequences([encoded],max_len=text_seq_length,truncating='pre')
+# print(x_test)
+# seed_text=lines[123456]
 
-        y_pred=model.predict_classes(encoded)
+# def generate_text_seq(model,tokenizer,text_seq_length,seed_text,n_word):
+#     text=[]
+
+#     for _ in range(n_word):
+#         encoded=tokenizer.texts_to_sequences([seed_text])[0]
+#         encoded=pad_sequences([encoded],max_len=text_seq_length,truncating='pre')
+
+#         y_pred=model.predict_classes(encoded)
 
 
-        predicted_word=''
-        for word,index in tokenizer.word_index.items():
-            if (index == y_pred):
-                predicted_word= word
-                break
-        seed_text=seed_text+' '+ predicted_word
-        text.append(predicted_word)
+#         predicted_word=''
+#         for word,index in tokenizer.word_index.items():
+#             if (index == y_pred):
+#                 predicted_word= word
+#                 break
+#         seed_text=seed_text+' '+ predicted_word
+#         text.append(predicted_word)
 
-        return ''.join(text)
+#         return ''.join(text)
 
-print(seed_text)
-seeded_text=generate_text_seq(model,tokenizer,seq_length,seed_text,100)
-print(seeded_text)
+# print(seed_text)
+# seeded_text=generate_text_seq(model,tokenizer,seq_length,seed_text,100)
+# print(seeded_text)

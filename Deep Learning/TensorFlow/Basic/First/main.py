@@ -80,7 +80,7 @@ model.compile(
 model.fit(
     x_train_flattened,
     y_train,
-    epochs=50,
+    epochs=10,
     callbacks=[tb_callback]
 )
 
@@ -96,9 +96,9 @@ y_predicted_labels=[np.argmax(i) for i in y_pred]
 
 cm=tf.math.confusion_matrix(labels=y_test,predictions=y_predicted_labels)
 
-# import seaborn as sns
-# plt.figure(figsize=(10,7))
-# sns.heatmap(cm,annot=True,fmt='d')
-# plt.xlabel('Predicted')
-# plt.ylabel('Truth')
-# plt.show()
+import seaborn as sns
+plt.figure(figsize=(10,7))
+sns.heatmap(cm,annot=True,fmt='d')
+plt.xlabel('Predicted')
+plt.ylabel('Truth')
+plt.show()

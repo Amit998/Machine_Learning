@@ -1,0 +1,10 @@
+1) Bank Note Authentication
+Covering of the flask implementation
+Deploy models using flask and flassger
+Docker instalation using docker and
+deploy ml models using streamlit
+deployment of ml pipelines using google cloud and kubernetes
+2) Movie Recomendation System using End to end implimentation
+3)Flight Fare Prediction Web app Project with deployment
+4)Cotton Disease Prediction
+5) Stock Sentiment Analysis using news heading

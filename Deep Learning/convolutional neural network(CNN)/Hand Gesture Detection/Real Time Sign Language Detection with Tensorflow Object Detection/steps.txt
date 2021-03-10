@@ -1,0 +1,14 @@
+Labelling Images For Object Detection
+Training Tensorflow for sign language
+detecting sign language in real time
+
+
+Flow 
+Clone Repo
+Collect Images -code
+setUp labelImg
+Label Images
+Update LabelMap
+Train
+update checkPoint 
+detect
