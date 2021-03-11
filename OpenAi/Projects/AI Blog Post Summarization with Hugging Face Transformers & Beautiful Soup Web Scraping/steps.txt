@@ -1,0 +1,6 @@
+0. Installing Transformers and Importing Dependencies
+1. Load Summarization Pipeline
+2. Get Blog Post from Medium
+3. Chunk Text
+4. Summarize Text
+5. Output to Text File

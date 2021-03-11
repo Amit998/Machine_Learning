@@ -26,5 +26,5 @@ with open(ANNOTATION_PATH+'\label_map.pbtxt','w') as f:
         f.write('}\n')
 
 
-# !python {SCRIPTS_PATH+/'generate_tfrecord.py'} - x {IMAGE_PATH+'/train'} -1 {ANNOTATION_PATH+ '/label_map.pbtxt'} -o {ANNOTATION_PATH+'/train.record'}
+# python Tensorflow/scripts/generate_tfrecord.py -x Tensorflow/workspace/images/train -l Tensorflow/workspace/annotations/label_map.pbtxt -o Tensorflow/workspace/annotations/train.record
  
