@@ -15,3 +15,13 @@ tf.config.experimental.set_memory_growth(physical_divice[0],True)
 BATCH_SIZE = 64
 WEIGHT_DECAY = 0.001
 LEARNING_RATE = 0.001
+
+
+train_df = pd.read_csv("D:/study/datasets/multidigit/train.csv")
+test_df = pd.read_csv("D:/study/datasets/multidigit/test.csv")
+train_images = "D:/study/datasets/multidigit/train_images/" + train_df.iloc[:, 0].values
+test_images = "D:/study/datasets/multidigit/test_images/" + test_df.iloc[:, 0].values
+
+train_labels = train_df.iloc[:, 1:].values
+test_labels = test_df.iloc[:, 1:].values
+

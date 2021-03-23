@@ -1,7 +1,9 @@
 YT 
 Aladdin Persson
-
+DeepLearningAI
 
 
 deeplizard
 https://www.youtube.com/watch?v=gZmobeGL0Yg&list=PLZbbT5o_s2xq7LwI2y8_QtvuXZedL6tQU
+C4W2L03 Resnets
+https://www.youtube.com/watch?v=ZILIbUvp5lk
