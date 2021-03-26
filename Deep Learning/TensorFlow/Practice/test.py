@@ -36,7 +36,8 @@ def read_image(image_path, label):
 
     # In older versions you need to set shape in order to avoid error
     # on newer (2.3.0+) the following 3 lines can safely be removed
-    image.set_shape((64, 64, 1))
+    # image.set_shape((64, 64, 1))
+    image.set_shape((32, 32, 1))
     label[0].set_shape([])
     label[1].set_shape([])
 

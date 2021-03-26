@@ -103,6 +103,10 @@ model.compile(
     optimizer=keras.optimizers.Adam(),
     metrics=['accuracy']
 )
+# 
+print(y_train.shape,x_train.shape)
 
-model.fit(x_train,y_train,batch_size=32,epochs=2,verbose=2)
-model.evaluate(x_test,y_test,batch_size=32,verbose=2)
+model.fit(x_train,y_train,epochs=2,verbose=2)
+# model.evaluate(x_test,y_test,batch_size=32,verbose=2)
+
+# model.save('pretrain2')

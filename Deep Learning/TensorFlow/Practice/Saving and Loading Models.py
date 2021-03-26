@@ -26,8 +26,8 @@ tf.config.experimental.set_memory_growth(physical_divice[0],True)
 
 (x_train,y_train),(x_test,y_test)=mnist.load_data()
 
-x_train=x_train.reshape(-1,28*28).astype("float32")/255.0
-x_test=x_test.reshape(-1,28*28).astype("float32")/255.0
+x_train=x_train.reshape(-1,28,28,1).astype("float32")/255.0
+x_test=x_test.reshape(-1,28,28,1).astype("float32")/255.0
 
 
 model1 = keras.Sequential(
@@ -37,7 +37,7 @@ model1 = keras.Sequential(
     ]
 )
 
-inputs = keras.Input(784)
+inputs = keras.Input(28)
 x = layers.Dense(64, activation="relu")(inputs)
 outputs = layers.Dense(10)(x)
 model2 = keras.Model(inputs=inputs, outputs=outputs)
@@ -55,24 +55,24 @@ class MyModel(keras.Model):
 
 
 # SavedModel format or HDF5 format
-# model3 = MyModel()
+model3 = MyModel()
 
-# model=model1
+model=model1
 
-# model.compile(
-#     loss=keras.losses.SparseCategoricalCrossentropy(from_logits=True),
-#     optimizer=keras.optimizers.Adam(),
-#     metrics=["accuracy"],
-# )
+model.compile(
+    loss=keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+    optimizer=keras.optimizers.Adam(),
+    metrics=["accuracy"],
+)
 
-# # print(x_train.shape,y_train.shape)
-# # model.load_weights('checkpoint_folder/')
+# print(x_train.shape,y_train.shape)
+# model.load_weights('checkpoint_folder/')
 
-# model.fit(x_train, y_train, batch_size=32, epochs=2, verbose=2)
+model.fit(x_train, y_train, batch_size=32, epochs=2, verbose=2)
 # model.evaluate(x_test, y_test, batch_size=32, verbose=2)
 # model.save_weights('checkpoint_folder/',save_format='h5')
 
 # model.save("saved_model/") 
 
-model=keras.models.load_model('saved_model/')
-print(model.evaluate(x_test, y_test, batch_size=32, verbose=2))
+# model=keras.models.load_model('saved_model/')
+# print(model.evaluate(x_test, y_test, batch_size=32, verbose=2))
