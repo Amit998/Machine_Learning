@@ -8,3 +8,4 @@ https://www.youtube.com/watch?v=gZmobeGL0Yg&list=PLZbbT5o_s2xq7LwI2y8_QtvuXZedL6
 C4W2L03 Resnets
 https://www.youtube.com/watch?v=ZILIbUvp5lk
 https://tfhub.dev/ --> copy the url of the model you want
+https://www.tensorflow.org/api_docs/cc --> datasets

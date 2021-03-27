@@ -3,10 +3,11 @@ import os
 import time
 import uuid
 
-IMAGES_PATH="Tensorflow/workspace/images/collectedImages"
+IMAGES_PATH="collectedImages"
 
 labels=["hello",'thankyou','yes','no','iLoveYou']
-num_images=15
+num_images=1
+
 
 for label in labels:
     # os.mkdir('Tensorflow\workspace\images\collectedImages\\'+label)
@@ -16,6 +17,8 @@ for label in labels:
     for imgNum in range(num_images):
         ret,frame=cap.read()
         imagename=os.path.join(IMAGES_PATH,label,label+'.'+'{}.jpg'.format(str(uuid.uuid1())))
+
+        print(imagename)
         cv2.imwrite(imagename,frame)
         cv2.imshow('frame',frame)
         time.sleep(2)
@@ -24,3 +27,5 @@ for label in labels:
             break
             
     cap.release()
+
+# AllImages\mask\mask.2aaa193e-8eca-11eb-9c8e-24ee9aece5f9.jpg
