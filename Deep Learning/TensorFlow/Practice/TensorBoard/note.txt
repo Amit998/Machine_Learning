@@ -1,0 +1,4 @@
+Aladdin Persson's Tutorial
+
+tensorboard --logdir logs
+

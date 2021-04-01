@@ -88,7 +88,7 @@ def get_model():
 
 
 model = get_model()
-num_epochs = 1
+num_epochs = 5 
 loss_fn = keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 optimizer = keras.optimizers.Adam(lr=0.001)
 acc_metric = keras.metrics.SparseCategoricalAccuracy()
