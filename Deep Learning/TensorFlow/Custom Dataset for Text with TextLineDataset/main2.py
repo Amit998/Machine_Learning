@@ -14,38 +14,38 @@ import pickle
 
 
 
-tokenizer=tfds.deprecated.text.Tokenizer()
+# tokenizer=tfds.deprecated.text.Tokenizer()
 
-english=tf.data.TextLineDataset("english.csv")
-swedish=tf.data.TextLineDataset("swedish.csv")
-
-
-dataset=tf.data.Dataset.zip((english,swedish))
-for eng,swe in dataset.skip(1):
-    print(tokenizer.tokenize(eng.numpy()))
-    print(tokenizer.tokenize(swe.numpy().decode("UTF-8")))
+# english=tf.data.TextLineDataset("english.csv")
+# swedish=tf.data.TextLineDataset("swedish.csv")
 
 
-import sys
-sys.exit()
+# dataset=tf.data.Dataset.zip((english,swedish))
+# for eng,swe in dataset.skip(1):
+#     print(tokenizer.tokenize(eng.numpy()))
+#     print(tokenizer.tokenize(swe.numpy().decode("UTF-8")))
 
-file_names=['test_example1.csv','test_example2.csv','test_example3.csv']
+
+# import sys
+# sys.exit()
+
+# file_names=['test_example1.csv','test_example2.csv','test_example3.csv']
 
 # dataset=tf.data.TextLineDataset(file_names)
 
-dataset1=tf.data.TextLineDataset('test_example1.csv').skip(1)
-dataset2=tf.data.TextLineDataset('test_example2.csv').skip(1)
-dataset3=tf.data.TextLineDataset('test_example3.csv').skip(1)
+# dataset1=tf.data.TextLineDataset('test_example1.csv').skip(1)
+# dataset2=tf.data.TextLineDataset('test_example2.csv').skip(1)
+# dataset3=tf.data.TextLineDataset('test_example3.csv').skip(1)
 
 
-dataset=dataset1.concatenate(dataset2).concatenate(dataset3)
-for line in dataset:
-    print(line)
+# dataset=dataset1.concatenate(dataset2).concatenate(dataset3)
+# for line in dataset:
+#     print(line)
 
 
 
-import sys
-sys.exit()
+# import sys
+# sys.exit()
 
 
 def filter_train(line):
@@ -66,7 +66,7 @@ def filter_test(line):
 
     return (
         True
-        if dataset_belonging == 'test' and sentiment_category == 'unsup'
+        if dataset_belonging == 'test' and sentiment_category != 'unsup'
         else False
     )
 
@@ -92,7 +92,7 @@ tokenizer=tfds.deprecated.text.Tokenizer()
 def build_vocabulary(ds_train,threshold=200):
     frequency={}
     vocabulary=set()
-    vocabulary.update(["sootoken"])
+    vocabulary.update(["sostoken"])
     vocabulary.update(["eostoken"])
 
     for line in ds_train.skip(1):
@@ -169,7 +169,7 @@ model.compile(
     metrics=["accuracy"],
 )
 
-model.fit(ds_train,epochs=15,verbose=2)
+model.fit(ds_train,epochs=20,verbose=2)
 
 print(model.evaluate(ds_test))
 # model.save('model.h4') 
