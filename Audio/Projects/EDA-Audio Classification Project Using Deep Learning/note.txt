@@ -4,3 +4,5 @@ filename='D:/study/datasets/Audio/Dog-barking-sound.wav'
 
 Extract Features
 Here we will be using Mel-Frequency Cepstral Coefficients(MFCC) from the audio samples. The MFCC summarises the frequency distribution across the window size, so it is possible to analyse both the frequency and time characteristics of the sound. These audio representations will allow us to identify features for classification.
+
+Mel-Frequency Cepstral Coefficients(MFCC)
