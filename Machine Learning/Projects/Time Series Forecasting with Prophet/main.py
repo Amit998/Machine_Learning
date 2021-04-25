@@ -1,7 +1,7 @@
 import warnings
 from pandas._libs import interval
 warnings.simplefilter("ignore")
-
+import matplotlib.pyplot as plt
 
 import pandas as pd
 
@@ -38,8 +38,18 @@ data=df[['ds','Value']]
 
 
 data.columns=['ds','y']
-print(data.head())
+# print(data.head())
 
 
 m = Prophet(interval_width=0.95, daily_seasonality=True)
-m.fit(data)
+model=m.fit(data)
+
+
+future=m.make_future_dataframe(periods=100,freq='D')
+forecast=m.predict(future)
+# print(forecast.tail())
+
+# plt.plot(forecast)
+# plt.show()
+plot2=m.plot_components(forecast)
+plot2.show()
