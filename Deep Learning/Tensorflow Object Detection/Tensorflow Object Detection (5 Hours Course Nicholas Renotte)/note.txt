@@ -1,0 +1,11 @@
+Create a new virtual environment
+python -m venv tfod
+
+to activate
+.\tfod\Scripts\activate
+
+to deactivate
+
+python -m pip install --upgrade pip
+pip install ipykernel
+python -m ipykernel install --user --name=tfod
