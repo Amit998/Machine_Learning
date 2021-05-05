@@ -8,6 +8,12 @@ cap = cv2.VideoCapture("videos/3.mp4")
 mpPose=mp.solutions.pose
 pose=mpPose.Pose()
 
+
+
+
+    
+
+
 pTime=0
 
 wCam,hCam=640,480
