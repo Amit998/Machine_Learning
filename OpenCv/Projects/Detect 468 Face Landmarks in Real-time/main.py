@@ -2,7 +2,8 @@ import cv2
 import mediapipe as mp
 import time
 
-cap=cv2.VideoCapture("video/2.mp4")
+# cap=cv2.VideoCapture("video/2.mp4")
+cap=cv2.VideoCapture(0)
 pTime=0
 
 

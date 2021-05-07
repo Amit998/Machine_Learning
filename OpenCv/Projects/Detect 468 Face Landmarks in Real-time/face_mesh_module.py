@@ -57,7 +57,8 @@ class Face_Mesh():
 
 
 def main():
-    cap=cv2.VideoCapture("video/9.mp4")
+    # cap=cv2.VideoCapture("video/9.mp4")
+    cap=cv2.VideoCapture(0)
     pTime=0
     detector=Face_Mesh()
 
