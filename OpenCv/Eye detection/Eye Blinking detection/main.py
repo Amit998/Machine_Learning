@@ -49,20 +49,20 @@ while True:
 
         # cv2.circle(frame,(x,y),3,(0,0,255),2)
 
-        left_eye_left_point=(landmarks.part(36).x,landmarks.part(36).y)
-        left_eye_right_point=(landmarks.part(39).x,landmarks.part(39).y)
-        left_eye_centerTop=midPoint(landmarks.part(37),landmarks.part(38))
-        left_eye_centerBottom=midPoint(landmarks.part(41),landmarks.part(40))
-        left_eye_hor_line=cv2.line(frame,left_eye_left_point,left_eye_right_point,(200,200,200),2)
-        left_eye_verticle_line=cv2.line(frame,left_eye_centerTop,left_eye_centerBottom,(200,200,200),2)
+        # left_eye_left_point=(landmarks.part(36).x,landmarks.part(36).y)
+        # left_eye_right_point=(landmarks.part(39).x,landmarks.part(39).y)
+        # left_eye_centerTop=midPoint(landmarks.part(37),landmarks.part(38))
+        # left_eye_centerBottom=midPoint(landmarks.part(41),landmarks.part(40))
+        # left_eye_hor_line=cv2.line(frame,left_eye_left_point,left_eye_right_point,(200,200,200),2)
+        # left_eye_verticle_line=cv2.line(frame,left_eye_centerTop,left_eye_centerBottom,(200,200,200),2)
 
 
-        right_eye_left_point=(landmarks.part(42).x,landmarks.part(42).y)
-        right_eye_right_point=(landmarks.part(45).x,landmarks.part(45).y)
-        right_eye_centerTop=midPoint(landmarks.part(43),landmarks.part(44))
-        right_eye_centerBottom=midPoint(landmarks.part(46),landmarks.part(47))
-        right_eye_hor_line=cv2.line(frame,right_eye_left_point,right_eye_right_point,(200,200,200),2)
-        right_eye_verticle_line=cv2.line(frame,right_eye_centerTop,right_eye_centerBottom,(200,200,200),2)
+        # right_eye_left_point=(landmarks.part(42).x,landmarks.part(42).y)
+        # right_eye_right_point=(landmarks.part(45).x,landmarks.part(45).y)
+        # right_eye_centerTop=midPoint(landmarks.part(43),landmarks.part(44))
+        # right_eye_centerBottom=midPoint(landmarks.part(46),landmarks.part(47))
+        # right_eye_hor_line=cv2.line(frame,right_eye_left_point,right_eye_right_point,(200,200,200),2)
+        # right_eye_verticle_line=cv2.line(frame,right_eye_centerTop,right_eye_centerBottom,(200,200,200),2)
 
         # print(left_eye_centerBottom[0])
 
