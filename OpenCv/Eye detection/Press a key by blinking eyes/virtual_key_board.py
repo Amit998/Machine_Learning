@@ -10,24 +10,18 @@ keys_set={
     2:"E",
     3:"R",
     4:"T",
-
     5:"A",
     6:"B",
     7:"C",
     8:"D",
     9:"E",
-
     10:"E",
     11:"G",
     12:"H",
     13:"I",
     14:"J",
-
     15:"X",
     16:"Z",
-
-
-
 }
 
 def letter(letter_index,letter,letter_light=True):
