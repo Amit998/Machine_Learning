@@ -1,3 +1,8 @@
+#set FLASK_APP=humanFlask.py
+#set FLASK_ENV=development
+#flask run --host=172.18.240.1
+
+
 from keras.models import load_model
 from flask import Flask,jsonify,request
 from flask_restful import Resource,Api,reqparse
@@ -16,11 +21,13 @@ import  tensorflow as tf
 
 app = Flask(__name__)
 api=Api(app)
+physical_devices = tf.config.experimental.list_physical_devices('GPU')
+assert len(physical_devices) > 0
+tf.config.experimental.set_memory_growth(physical_devices[0], True)
 
 
 
-
-model=load_model('../test.h5')
+model=load_model('D:/study/python/AI/Deep Learning/Generative Adversarial Networks(GAN)/Pix2Pix/Human Generator/test.h5')
 
 print("Model loaded")
 
@@ -41,24 +48,38 @@ class Predict(Resource):
         json_data=request.get_json()
         img_data=json_data['Image']
 
+        # print(img_data);
+
         image=base64.b64decode(str(img_data))
 
-        img=Image.open(io.BytesIO(image))
+        image=Image.open(io.BytesIO(image))
+
+        # print(image)
          
 
         prepared_image=prepare_image(image,target=(256,256))
 
-        preds=model.predict(prepare_image())
+        # print(prepared_image)
+
+        # print("Lets Predict")
+
+        preds=model.predict(prepared_image)
+
+        # print(preds,'This is preds')
 
         outputFile='output.png'
         savePath='./output/'
 
         outputs=tf.reshape(preds,[256,256,3])
 
+        # print(outputs,'This is op')
+
         outputs=(outputs + 1) /2
 
 
         save_img(savePath+outputFile,img_to_array(outputs))
+
+        # print("Saved")
 
         imageNew=Image.open(savePath+outputFile)
         imageNew=imageNew.resize((50,50))
@@ -74,6 +95,7 @@ class Predict(Resource):
         }
         
         return outputData
+        # return 1
 
     
 api.add_resource(Predict,'/predict')
