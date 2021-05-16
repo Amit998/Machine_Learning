@@ -2,7 +2,17 @@ import cv2
 import numpy as np
 import dlib
 import math
+import pyglet
+import time
+from playsound import playsound
 
+
+
+# sound = pyglet.media.StaticSource(pyglet.media.load('pop.wav'))
+
+sound = pyglet.media.load("pop.wav",streaming=False,)
+left_sound=pyglet.media.load('left.wav',streaming=False)
+right_sound=pyglet.media.load('right.wav',streaming=False)
 
 
 cap=cv2.VideoCapture(0)
@@ -14,6 +24,19 @@ predictor=dlib.shape_predictor("../face_landmarks/shape_predictor_68_face_landma
 
 
 keyboard=np.zeros((600,1000,3),np.uint8)
+
+keys_set_1 = {0: "Q", 1: "W", 2: "E", 3: "R", 4: "T",
+              5: "A", 6: "S", 7: "D", 8: "F", 9: "G",
+              10: "Z", 11: "X", 12: "C", 13: "V", 14: "<"}
+keys_set_2 = {0: "Y", 1: "U", 2: "I", 3: "O", 4: "P",
+              5: "H", 6: "J", 7: "K", 8: "L", 9: "_",
+              10: "V", 11: "B", 12: "N", 13: "M", 14: "<"}
+
+
+keyboard_selected="left"
+
+last_keyboard_selected="left"
+
 
 keys_set={
     0:"Q",
@@ -138,6 +161,7 @@ def letter(letter_index,letter,letter_light=True):
         cv2.putText(keyboard,text,(text_x,text_y),font,font_scale,(255,255,255),font_th)
 
 
+
 def get_gaze_ratio(landmarks,eye_points):
     eye_region=np.array([
             (landmarks.part(eye_points[0]).x,landmarks.part(eye_points[0]).y),
@@ -229,12 +253,14 @@ while True:
                 # print('text',text)
                 # print(active_letter,'active latter')
                 text+=active_letter
-        
-            # active_letter=keys_set[letter_index]
-            # print(active_letter)
+                playsound('sound.wav')
+                # sound.play()
+                # time.sleep(1)
+               
+                # sound.stop()         
         else:
             blinking_frames=0
-            # cv2.putText(frame,"Open",(50,150),font,3,(255,200,0))
+        # cv2.putText(frame,"Open",(50,150),font,3,(255,200,0))
 
         gaze_ratio_left_side=get_gaze_ratio(landmarks,[36,37,38,39,40,41])
         gaze_ratio_right_side=get_gaze_ratio(landmarks,[42,43,44,45,46,47])
@@ -245,18 +271,34 @@ while True:
 
         new_frame=np.zeros((500,500,3),np.uint8)
 
-        # if gaze_ratio < 1:
-        #     cv2.putText(frame,f"Right",(50,100),font,2,(255,255,255),3)
-        #     print("Right")
-        #     new_frame[:]=(0,0,255)
-        # elif 1 < gaze_ratio <2:
-        #     cv2.putText(frame,f"Center",(50,100),font,2,(255,255,255),3)
-        #     print("Center")
-        #     new_frame[:]=(0,255,0)
-        # else:
-        #     new_frame[:]=(255,0,0)
-        #     cv2.putText(frame,f"Left",(50,100),font,2,(255,255,255),3)
-        #     print("Left")
+        if gaze_ratio < 1:
+            keyboard_selected="right"
+            
+            if keyboard_selected != last_keyboard_selected:
+
+                # cv2.putText(frame,f"Right",(50,100),font,2,(255,255,255),3)
+               
+
+                # right_sound.play()
+                # time.sleep(1)
+                playsound('right.wav')
+                last_keyboard_selected=keyboard_selected
+                new_frame[:]=(0,0,255)
+         
+        elif 1 < gaze_ratio <2:
+            cv2.putText(frame,f"Center",(50,100),font,2,(255,255,255),3)
+            print("Center")
+            new_frame[:]=(0,255,0)
+        else:
+            keyboard_selected="left"
+            if keyboard_selected != last_keyboard_selected:
+                # left_sound.play()
+                # time.sleep(1)
+                last_keyboard_selected=keyboard_selected
+                # new_frame[:]=(255,0,0)
+                # cv2.putText(frame,f"Left",(50,100),font,2,(255,255,255),3)
+                # print("Left")
+                playsound('left.wav')
     
         # new_frame=np.zeros((500,500,3),np.uint8)
 
