@@ -77,8 +77,6 @@ def get_blinking_ratio(eye_points,faceial_landmarks):
     
     verticle_line_length=math.hypot((centerTop[0]-centerBottom[0]),(centerTop[1]-centerBottom[1]))
 
-    # print(horizontal_line_length,verticle_line_length)
-    # print(centerTop,centerBottom)
     ratio =horizontal_line_length / verticle_line_length
     return ratio
 
@@ -99,10 +97,6 @@ def letter(letter_index,letter,letter_light=True):
     elif (letter_index == 4):
         x=800
         y=0
-    elif (letter_index == 15):
-        x=0
-        y=200
-    
     elif (letter_index == 5):
         x=200
         y=200
