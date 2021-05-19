@@ -226,8 +226,6 @@ while True:
     for face in faces:
 
 
-      
-
         landmarks=predictor(gray,face)
 
         left_eye, right_eye = eyes_contour_points(landmarks)
@@ -264,7 +262,8 @@ while True:
                     last_keyboard_selected = keyboard_selected
                     keyboard_selection_frames = 0
             elif 1 < gaze_ratio < 2:
-                playsound('left.wav')
+                # playsound('left.wav')
+                pass
 
             else:
                 keyboard_selected = "left"
@@ -281,7 +280,7 @@ while True:
 
         else:
             # Detect the blinking to select the key that is lighting up
-            if blinking_ratio > 5:
+            if blinking_ratio > 4:
                 # cv2.putText(frame, "BLINKING", (50, 150), font, 4, (255, 0, 0), thickness=3)
                 blinking_frames += 1
                 frames -= 1
