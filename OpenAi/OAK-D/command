@@ -1,0 +1,11 @@
+https://store.opencv.ai/products/oak-d
+
+python depthai_demo.py
+
+https://github.com/luxonis/depthai/tree/main/resources/nn
+
+python depthai_demo.py -cnn mobilenet-ssd
+
+python depthai_demo.py -cnn face-detection-adas-0001
+
+python depthai_demo.py -s metaout depth_raw -bb
