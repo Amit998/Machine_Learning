@@ -40,6 +40,7 @@ except:
             if intent['tag'] not in labels:
                 labels.append(intent['tag'])
     words=[stemmer.stem(w.lower()) for w in words if w != "?"]
+    
     words=sorted(list(words))
     labels=sorted(labels)
 
