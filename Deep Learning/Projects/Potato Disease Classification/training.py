@@ -2,6 +2,7 @@ import tensorflow as tf
 from tensorflow._api.v2 import data
 from tensorflow.keras import models,layers
 import matplotlib.pyplot as plt
+import numpy as np
 
 IMAGE_SIZE=256
 BATCH_SIZE=32
@@ -85,4 +86,132 @@ data_augmentation=tf.keras.Sequential([
 
 
 
+input_shape_=(BATCH_SIZE,IMAGE_SIZE,IMAGE_SIZE,CHANNELS)
+n_classes=3
+model=models.Sequential(
+    [
+        resize_and_rescale,
+        data_augmentation,
+        layers.Conv2D(32,(3,3),activation='relu',input_shape=input_shape_),
+        layers.MaxPooling2D((2,2)),
+        layers.Conv2D(64,kernel_size=(3,3),activation='relu'),
+        layers.MaxPooling2D((2,2)),
+        layers.Conv2D(64,kernel_size=(3,3),activation='relu'),
+        layers.MaxPooling2D((2,2)),
 
+        layers.Conv2D(64,(3,3),activation='relu'),
+        layers.MaxPooling2D((2,2)),
+        layers.Conv2D(64,(3,3),activation='relu'),
+        layers.MaxPooling2D((2,2)),
+        layers.Conv2D(64,(3,3),activation='relu'),
+        layers.MaxPooling2D((2,2)),
+
+        layers.Flatten(),
+        layers.Dense(64,activation='relu'),
+        layers.Dense(n_classes,activation='softmax')
+    ]
+)
+
+model.build(input_shape=input_shape_)
+
+print(model.summary())
+
+
+print(input_shape_)
+
+model.compile(
+    optimizer='adam',
+    loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=False),
+    metrics=['accuracy']
+)
+
+
+history=model.fit(
+    train_ds,
+    epochs=EPOCHS,
+    batch_size=BATCH_SIZE,
+    verbose=1,
+    validation_data=val_ds,
+)
+
+
+scores=model.evaluate(test_ds)
+
+print(scores)
+
+
+print(history.history.keys())
+
+
+
+# acc = history.history['accuracy']
+# val_acc = history.history['val_accuracy']
+
+# loss = history.history['loss']
+# val_loss = history.history['val_loss']
+
+
+
+# plt.figure(figsize=(8, 8))
+# plt.subplot(1, 2, 1)
+# plt.plot(range(EPOCHS), acc, label='Training Accuracy')
+# plt.plot(range(EPOCHS), val_acc, label='Validation Accuracy')
+# plt.legend(loc='lower right')
+# plt.title('Training and Validation Accuracy')
+
+# plt.subplot(1, 2, 2)
+# plt.plot(range(EPOCHS), loss, label='Training Loss')
+# plt.plot(range(EPOCHS), val_loss, label='Validation Loss')
+# plt.legend(loc='upper right')
+# plt.title('Training and Validation Loss')
+# plt.show()
+
+
+for image_batch,labels_batch in test_ds.take(1):
+    first_image=(image_batch[0].numpy().astype('uint8'))
+    first_label=labels_batch[0]
+
+    print("First Image to predict")
+    print("First Label was  ",class_names[first_label])
+    batch_preddiction=model.predict(image_batch)
+    predicted_index=np.argmax(batch_preddiction[0])
+    print("First predicted Label was  ",class_names[predicted_index])
+
+
+
+    plt.show(first_image)
+
+
+
+def predict(model,image):
+    image_array=tf.keras.preprocessing.image.img_to_array(image[i].numpy())
+    image_array=tf.expand_dims(image_array,0)
+
+
+    predictions=model.predict(image_array)
+
+    predicted_class=class_names[np.argmax[predictions[0]]]
+    confidence=round(100*(np.max(predictions[0])),2)
+
+    return predicted_class,confidence
+
+plt.figure(figsize=(15,15))
+for images,labels in test_ds.take(1):
+    for i in range(9):
+        ax=plt.subplot(3,3,i+1)
+        plt.imshow(images[i].numpy().astype("uint8"))
+        predicted_class,confidence=predict(model,images[i].numpy())
+
+        actual_class=class_names[labels[i]]
+
+        plt.title(f"Actual: {actual_class} \n Predictedt class : {predicted_class} \n Confidence {confidence}")
+
+        plt.axis("off")
+
+
+
+
+model_version=1
+
+
+model.save(f"/models/model-{model_version}")
