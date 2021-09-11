@@ -7,7 +7,9 @@ import numpy as np
 IMAGE_SIZE=256
 BATCH_SIZE=32
 CHANNELS=3
-EPOCHS=50
+EPOCHS=1
+
+print(tf.config.list_physical_devices('GPU'))
 
 dataset=tf.keras.preprocessing.image_dataset_from_directory(
     "D:\study\datasets\PlantVillage\potato",
@@ -134,7 +136,28 @@ history=model.fit(
     validation_data=val_ds,
 )
 
+model_version=1
 
+
+import pickle
+ 
+
+Pkl_Filename = "model.pkl"  
+
+# with open(Pkl_Filename, 'wb') as file:  
+#     pickle.dump(model, file)
+
+
+history = "history.pkl"  
+
+with open(history, 'wb') as file:  
+    pickle.dump(history, file)
+
+
+
+model.save(f"model-{model_version}")
+
+model.save('/models/')
 scores=model.evaluate(test_ds)
 
 print(scores)
@@ -167,51 +190,47 @@ print(history.history.keys())
 # plt.show()
 
 
-for image_batch,labels_batch in test_ds.take(1):
-    first_image=(image_batch[0].numpy().astype('uint8'))
-    first_label=labels_batch[0]
+# for image_batch,labels_batch in test_ds.take(1):
+#     first_image=(image_batch[0].numpy().astype('uint8'))
+#     first_label=labels_batch[0]
 
-    print("First Image to predict")
-    print("First Label was  ",class_names[first_label])
-    batch_preddiction=model.predict(image_batch)
-    predicted_index=np.argmax(batch_preddiction[0])
-    print("First predicted Label was  ",class_names[predicted_index])
-
-
-
-    plt.show(first_image)
+#     print("First Image to predict")
+#     print("First Label was  ",class_names[first_label])
+#     batch_preddiction=model.predict(image_batch)
+#     predicted_index=np.argmax(batch_preddiction[0])
+#     print("First predicted Label was  ",class_names[predicted_index])
 
 
 
-def predict(model,image):
-    image_array=tf.keras.preprocessing.image.img_to_array(image[i].numpy())
-    image_array=tf.expand_dims(image_array,0)
-
-
-    predictions=model.predict(image_array)
-
-    predicted_class=class_names[np.argmax[predictions[0]]]
-    confidence=round(100*(np.max(predictions[0])),2)
-
-    return predicted_class,confidence
-
-plt.figure(figsize=(15,15))
-for images,labels in test_ds.take(1):
-    for i in range(9):
-        ax=plt.subplot(3,3,i+1)
-        plt.imshow(images[i].numpy().astype("uint8"))
-        predicted_class,confidence=predict(model,images[i].numpy())
-
-        actual_class=class_names[labels[i]]
-
-        plt.title(f"Actual: {actual_class} \n Predictedt class : {predicted_class} \n Confidence {confidence}")
-
-        plt.axis("off")
+#     plt.show(first_image)
 
 
 
+# def predict(model,image):
+#     image_array=tf.keras.preprocessing.image.img_to_array(image[i].numpy())
+#     image_array=tf.expand_dims(image_array,0)
 
-model_version=1
+
+#     predictions=model.predict(image_array)
+
+#     predicted_class=class_names[np.argmax[predictions[0]]]
+#     confidence=round(100*(np.max(predictions[0])),2)
+
+#     return predicted_class,confidence
+
+# plt.figure(figsize=(15,15))
+# for images,labels in test_ds.take(1):
+#     for i in range(9):
+#         ax=plt.subplot(3,3,i+1)
+#         plt.imshow(images[i].numpy().astype("uint8"))
+#         predicted_class,confidence=predict(model,images[i].numpy())
+
+#         actual_class=class_names[labels[i]]
+
+#         plt.title(f"Actual: {actual_class} \n Predictedt class : {predicted_class} \n Confidence {confidence}")
+
+#         plt.axis("off")
 
 
-model.save(f"/models/model-{model_version}")
+
+
