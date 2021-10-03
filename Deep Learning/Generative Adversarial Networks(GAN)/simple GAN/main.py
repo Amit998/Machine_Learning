@@ -56,8 +56,8 @@ transforms=transforms.Compose(
 
 dataset=datasets.MNIST(root="dataset/",transform=transforms,download=True)
 loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
-opt_disc=optim.Adam(disc.Parameters(),lr=lr)
-opt_gen=optim.Adam(gen.Parameters(),lr=lr)
+opt_disc = optim.Adam(disc.parameters(), lr=lr)
+opt_gen = optim.Adam(gen.parameters(), lr=lr)
 
 criterion=nn.BCELoss()
 writer_fake=SummaryWriter(f"runs/GAN_MNIST/fake")
@@ -116,3 +116,5 @@ for epoch in range(num_epochs):
                     "Mnist Real Images", img_grid_real, global_step=step
                 )
                 step += 1
+
+
