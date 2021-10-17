@@ -71,6 +71,7 @@ while True:
     
 
     for object_id in tracking_objects.items():
+        continue
     
 
     print("Tracking Objects")
